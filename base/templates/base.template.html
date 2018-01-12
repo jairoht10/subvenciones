@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static from staticfiles %}
+<html lang="{{ LANGUAGE_CODE|default:"es-ve" }}">
+    {% include 'base.head.template.html' %}
+    <body>
+        <nav class="navbar navbar-inverse" style="background-color: #ea110a;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'inicio' %}">Subvenciones</a>
+                </div>
+
+           </div>
+       </nav>
+        {% include 'base.footer.template.html' %}
+        {% block extra_footer %}{% endblock %}
+    </body>
+</html>
