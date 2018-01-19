@@ -5,3 +5,6 @@ from django.views.generic import TemplateView
 
 class InicioView(TemplateView):
     template_name = "base.template.html"
+
+class Error403View(TemplateView):
+    template_name = "base.error.403.html"

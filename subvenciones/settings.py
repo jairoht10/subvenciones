@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base',
+    'usuario',
+    'persona',
 ]
 
 MIDDLEWARE = [
@@ -52,11 +54,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'subvenciones.urls'
 BASE_TEMPLATES = os.path.join(BASE_DIR, "base/templates")
+USUARIO_TEMPLATES = os.path.join(BASE_DIR, "usuario/templates")
+PERSONA_TEMPLATES = os.path.join(BASE_DIR, "persona/templates")
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_TEMPLATES],
+        'DIRS': [BASE_TEMPLATES, USUARIO_TEMPLATES, PERSONA_TEMPLATES],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
