@@ -11,7 +11,7 @@ class UsuarioForm(forms.ModelForm):
         max_length=9,
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control input-sm', 'data-toggle': 'tooltip', 'style': 'width:250px',
+                'class': 'form-control input-sm', 'data-toggle': 'tooltip', 'style': 'width:250px', 'placeholder': _("V/E00000000"),
                 'title': _("Indique la Cédula de la Persona"),
             }
         )
@@ -56,7 +56,7 @@ class UsuarioForm(forms.ModelForm):
         max_length=16,
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control input-sm', 'placeholder': '+058-000-0000000',
+                'clas   s': 'form-control input-sm', 'placeholder': '+058-000-0000000',
                 'data-rule-required': 'true', 'data-toggle': 'tooltip', 'size': '15',
                 'title': _("Indique el número telefónico de contacto"), 'data-mask': '+000-000-0000000'
             }

@@ -11,7 +11,7 @@ class UsuarioCreate(CreateView):
     model = User
     form_class = UsuarioForm
     template_name = "usuario.registro.html"
-    success_url = reverse_lazy('usuario_lista')
+    #success_url = reverse_lazy('usuario_lista')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -40,7 +40,7 @@ class UsuarioUpdate(UpdateView):
     model = User
     form_class = UsuarioUpdateForm
     template_name = "usuario.registro.html"
-    success_url = reverse_lazy('usuario_lista')
+    #success_url = reverse_lazy('usuario_lista')
 
     def get_initial(self):
         datos_iniciales = super(UsuarioUpdate, self).get_initial()

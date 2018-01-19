@@ -9,6 +9,6 @@ urlpatterns = [
     url(r'^cambiar-clave/$', login_required(auth_views.PasswordChangeView.as_view(template_name='password_change_form.html')), name='password_change'),
     url(r'^cambiar-clave-hecho/$', login_required(auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html')), name='password_change_done'),
 
-    url(r'^registro/$', login_required(UsuarioCreate.as_view()), name='usuario_registro'),
+    url(r'^registro/$', UsuarioCreate.as_view(), name='usuario_registro'),
     url(r'^actualizar/(?P<pk>\d+)/$', login_required(UsuarioUpdate.as_view()), name='usuario_actualizar'),
 ]

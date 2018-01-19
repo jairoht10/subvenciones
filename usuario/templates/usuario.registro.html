@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="text-right">
-                    <a href="{% url 'usuario_lista' %}" class="btn btn-primary btn-sm">Atrás</a>
+                    <a href="{% url 'inicio' %}" class="btn btn-primary btn-sm">Atrás</a>
                     <button type="reset" class="btn btn-primary btn-sm" data-toggle="tooltip">{% trans 'Limpiar' %}</button>
                     <button type="submit" class="btn btn-primary btn-sm" data-toggle="tooltip">{% if not form.instance.pk %}{% trans 'Registrar' %}{% else %}{% trans 'Actualizar' %}{% endif %}</button>
                 </div>
