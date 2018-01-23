@@ -11,7 +11,6 @@ class UsuarioCreate(CreateView):
     model = User
     form_class = UsuarioForm
     template_name = "usuario.registro.html"
-    #success_url = reverse_lazy('usuario_lista')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)

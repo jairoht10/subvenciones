@@ -22,12 +22,6 @@ class Perfil(models.Model):
         on_delete=models.CASCADE
     )
 
-    users = models.ForeignKey(
-        User, related_name="users",
-        help_text=_("Registra nuevos usuarios y los mantiene relacionados consigo mismo"),
-        on_delete=models.CASCADE
-    )
-
 class Meta:
 
         verbose_name = _("Perfil")
