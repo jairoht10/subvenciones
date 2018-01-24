@@ -39,6 +39,28 @@ class UsuarioForm(forms.ModelForm):
         )
     )
 
+    ocupacion = forms.CharField(
+        label=_("Ocupación:"),
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control input-sm', 'data-toggle': 'tooltip', 'style':'width:250px;',
+                'title': _("Indique la ocupación de la Persona"),
+            }
+        )
+    )
+
+    profesion = forms.CharField(
+        label=_("profesión:"),
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control input-sm', 'data-toggle': 'tooltip', 'style':'width:250px;',
+                'title': _("Indique la profesión de la Persona"),
+            }
+        )
+    )
+
     correo = forms.EmailField(
         label=_("Correo Electrónico:"),
         max_length=100,
@@ -53,6 +75,19 @@ class UsuarioForm(forms.ModelForm):
 
     telefono = forms.CharField(
         label=_("Teléfono:"),
+        max_length=16,
+        widget=forms.TextInput(
+            attrs={
+                'clas   s': 'form-control input-sm', 'placeholder': '+058-000-0000000',
+                'data-rule-required': 'true', 'data-toggle': 'tooltip', 'size': '15',
+                'title': _("Indique el número telefónico de contacto"), 'data-mask': '+000-000-0000000'
+            }
+        ),
+        help_text=_("(país)-área-número")
+    )
+
+    telefono_casa = forms.CharField(
+        label=_("Teléfono local:"),
         max_length=16,
         widget=forms.TextInput(
             attrs={

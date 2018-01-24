@@ -1,30 +1,14 @@
 {% extends "base.template.html" %}
 {% load i18n %}
-{% block content_header_title %}{% trans 'Usuario' %}{% endblock %}
+{% block content_header_title %}{% trans 'Registro del Solicitante' %}{% endblock %}
 {% block contenido %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4 class="text-left">{% if not form.instance.pk %}{% trans 'Registrar' %}{% else %}{% trans 'Actualizar' %}{% endif %}</h4>
+            <h4 class="text-left">{% if not form.instance.pk %}{% trans 'Datos del Solicitante' %}{% else %}{% trans 'Actualizar' %}{% endif %}</h4>
         </div>
         <div class="panel-body">
 	        <form action="" role="form" class="form form-horizontal validate-form" method="post" autocomplete="off">
                 {% csrf_token %}
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <div class="form-group {% if form.cedula.errors %}has-error{% endif %}">
-                            <label class="col-md-3 col-xs-3 col-sm-3 control-label" for="{{ form.cedula.auto_id }}">
-                                {{ form.cedula.label }}
-                            </label>
-                            <div class="col-md-9 col-xs-9 col-sm-9">
-                                <div class="form-inline">
-                                    {{ form.cedula }}
-                                    <i class="ion ion-ios-medical item-requerido"></i>
-                                </div>
-                                {% include 'base.form.errors.html' with form_errors=form.cedula.errors col_title_error='col-sm-2' col_msg_error='col-sm-10' %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-6">
@@ -52,6 +36,38 @@
                                     <i class="ion ion-ios-medical item-requerido"></i>
                                 </div>
                                 {% include 'base.form.errors.html' with form_errors=form.apellido.errors col_title_error='col-sm-2' col_msg_error='col-sm-10' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group {% if form.cedula.errors %}has-error{% endif %}">
+                            <label class="col-md-3 col-xs-3 col-sm-3 control-label" for="{{ form.cedula.auto_id }}">
+                                {{ form.cedula.label }}
+                            </label>
+                            <div class="col-md-9 col-xs-9 col-sm-9">
+                                <div class="form-inline">
+                                    {{ form.cedula }}
+                                    <i class="ion ion-ios-medical item-requerido"></i>
+                                </div>
+                                {% include 'base.form.errors.html' with form_errors=form.cedula.errors col_title_error='col-sm-2' col_msg_error='col-sm-10' %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group {% if form.telefono.errors %}has-error{% endif %}">
+                            <label class="col-md-3 col-xs-3 col-sm-3 control-label" for="{{ form.telefono.auto_id }}">
+                                {{ form.telefono_casa.label }}
+                            </label>
+                            <div class="col-md-9 col-xs-9 col-sm-9">
+                                <div class="form-inline">
+                                    {{ form.telefono_casa }}
+                                    <i class="ion ion-ios-medical item-requerido"></i>
+                                </div>
+                                {{ form.telefono_casa.help_text }}
+                                {% include 'base.form.errors.html' with form_errors=form.telefono_casa.errors col_title_error='col-sm-2' col_msg_error='col-sm-10' %}
                             </div>
                         </div>
                     </div>
@@ -119,7 +135,43 @@
                         </div>
                     </div>
                 </div>
-
+              <!--<div class="panel panel-default">-->
+                <div class="panel-heading">
+                    <h4 class="text-left">Datos del Solicitante</h4>
+                </div>
+              <!--</div>-->
+<!-- JAIRO CONTINUA REGISTRO -->
+              <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group {% if form.nombre.errors %}has-error{% endif %}">
+                          <label class="col-md-3 col-xs-3 col-sm-3 control-label" for="{{ form.nombre.auto_id }}">
+                              {{ form.ocupacion.label }}
+                          </label>
+                          <div class="col-md-9 col-xs-9 col-sm-9">
+                              <div class="form-inline">
+                                  {{ form.ocupacion }}
+                                  <i class="ion ion-ios-medical item-requerido"></i>
+                              </div>
+                              {% include 'base.form.errors.html' with form_errors=form.ocupacion.errors col_title_error='col-sm-2' col_msg_error='col-sm-10' %}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group {% if form.apellido.errors %}has-error{% endif %}">
+                          <label class="col-md-3 col-xs-3 col-sm-3 control-label" for="{{ form.apellido.auto_id }}">
+                              {{ form.profesion.label }}
+                          </label>
+                          <div class="col-md-9 col-xs-9 col-sm-9">
+                              <div class="form-inline">
+                                  {{ form.profesion }}
+                                  <i class="ion ion-ios-medical item-requerido"></i>
+                              </div>
+                              {% include 'base.form.errors.html' with form_errors=form.profesion.errors col_title_error='col-sm-2' col_msg_error='col-sm-10' %}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+<!-- JAIRO FIN REGISTRO-->
                 <div class="text-right">
                     <a href="{% url 'inicio' %}" class="btn btn-primary btn-sm">Atrás</a>
                     <button type="reset" class="btn btn-primary btn-sm" data-toggle="tooltip">{% trans 'Limpiar' %}</button>

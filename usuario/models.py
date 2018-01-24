@@ -16,6 +16,26 @@ class Perfil(models.Model):
         ]
     )
 
+    telefono_casa = models.CharField(
+        max_length=16, help_text=_("Número telefónico de contacto con el usuario"),
+        validators=[
+            validators.RegexValidator(
+                r'^\+\d{3}-\d{3}-\d{7}$',
+                _("Número telefónico inválido. Solo se permiten números y los símbolos: + -")
+            ),
+        ]
+    )
+
+    ocupacion = models.CharField(
+    #    label=_("Ocupación:"),
+        max_length=100,
+    )
+
+    profesion = models.CharField(
+    #    label=_("Ocupación:"),
+        max_length=100,
+    )
+
     user = models.OneToOneField(
         User, related_name="perfil",
         help_text=_("Relación entre los datos de registro y el usuario con acceso al sistema"),
