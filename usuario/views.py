@@ -52,6 +52,9 @@ class UsuarioUpdate(UpdateView):
         datos_iniciales['correo'] = user.email
         perfil = Perfil.objects.get(user=user)
         datos_iniciales['telefono'] = perfil.telefono
+        datos_iniciales['telefono_casa'] = perfil.telefono_casa
+        datos_iniciales['ocupacion'] = perfil.ocupacion
+        datos_iniciales['profesion'] = perfil.profesion
         return datos_iniciales
 
     def form_valid(self, form):
@@ -64,6 +67,9 @@ class UsuarioUpdate(UpdateView):
         if Perfil.objects.filter(user=self.object):
             perfil = Perfil.objects.get(user=self.object)
             perfil.telefono = form.cleaned_data['telefono']
+            perfil.telefono_casa = form.cleaned_data['telefono_casa']
+            perfil.ocupacion = form.cleaned_data['ocupacion']
+            perfil.profesion = form.cleaned_data['profesion']
             perfil.save()
         return super(UsuarioUpdate, self).form_valid(form)
 
