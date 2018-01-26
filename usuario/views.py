@@ -11,6 +11,7 @@ class UsuarioCreate(CreateView):
     model = User
     form_class = UsuarioForm
     template_name = "usuario.registro.html"
+    success_url = reverse_lazy('inicio')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -23,7 +24,7 @@ class UsuarioCreate(CreateView):
         self.object.is_active = True
         self.object.save()
 
-        user = User.objects.get(username=self.request.user.username)
+        #user = User.objects.get(username=self.request.user.username)
         Perfil.objects.create(
             telefono=form.cleaned_data['telefono'],
             telefono_casa=form.cleaned_data['telefono_casa'],
